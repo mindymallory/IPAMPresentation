@@ -1,3 +1,5 @@
+
+
 Exchange rate effect on carbon credit price via energy markets
 ========================================================
 author: Jongmin Yu and Mindy Mallory 
@@ -7,6 +9,10 @@ Hongik University and University of Illinois
 
 IPAM UCLA, Commodity Markets and thier Financialization
 
+```{r, echo=FALSE}
+setwd("C:/Users/mallorym/Documents/GitHub/IPAMPresentation")
+```
+
 Background
 ========================================================
 
@@ -15,40 +21,103 @@ Background
 
 Conceptual Framework
 ========================================================
-
+<img src="Figure1.png" height="418.848px" width="800px" />
 
 
 Data
 ========================================================
+<img src="Figure2.png" height="390.24px" width="800px" />
 
+Figure 2
 
+Data
+========================================================
+<img src="Figure3.png" height="390.24px" width="800px" />
+
+Figure 3
 
 Data Pretesting
 ========================================================
+Table 2: Pretests for model selection.
 
+Augmented Dickey Fuller unit root test
+
+|        |Model | Lags	|5%	    |Statistics|	Result         |
+|--------:|------:|------:|--------:|----------:|------------------:|
+|Carbon  |	NCNT|	7	    |−1.94  |	−1.57    |	Non-stationary
+|Coal	   | NCNT	| 1     |	−1.94 |	−0.35    |	Non-stationary| 
+|Natural gas |CNT|	9	| −2.86 |	−2.08 |	Non-stationary |
+| Euro/USD|	CNT|	0	|−2.86|	−2.11|	Non-stationary|
+|Euro/SFr|	CT|	8|	−3.41|	−2.26|	Non-stationary|
+|ΔCarbon|	NCNT|	0|	−1.94	|−6.31|	Stationary|
+|ΔCoal|	NCNT|	0|	−1.94|	−13.50|	Stationary|
+|ΔNatural| gas|	NCNT|	0	−1.94|	−4.22	|Stationary|
+|ΔEuro/USD|	NCNT|	0	|−1.94|	−15.17|	Stationary|
+|ΔEuro/SFr|	CNT|	5|	−2.86	|−9.08|	Stationary|
+CT: constant and trend, CNT: constant and no trend
+
+Data Pretesting
+========================================================
+Table 2: Johansen trace tests
+
+|Rank|  Trace statistic	|5% critical value|	p-Value|
+|---:|---:|---:|---:|
+|All variables|
+|$$0^a$$|	51.86|	76.81|	0.7977|
+| $$1$$	|32.88|	53.94|	0.8144|
+| $$2$$|	19.30|	35.07|	0.7673|
+| $$3$$	|8.28|	35.07	|0.7991|
+|$$4$$	|2.65|	9.14|	0.6532|
+|Coal and natural gas|
+| $$0$$|	25.51	|20.16|	0.0073|
+| $$1^a$$|	2.82|	9.14|	0.2093|
+*a* is the rank of cointegration tested
 
 Model Specification
 ========================================================
 
 
 
-Results
+
 ========================================================
+Table 3: Estimated effect of structural shock from the matrix *B*.
+
+|    |  Disturbance term | |   |   |  |
+|----:|----:|----:|----:|----:|----:|
+|Dependent |   Euro/USD *t* |	Euro/SFr *t* |	Coal *t*|	Natural gas *t*|	Carbon *t*|
+|Euro/USD *t*	|0.0069 (0.000)|	0.0000|	0.0000|	0.0000|	0.0000|
+|Euro/SFr *t*|	0.0016 (0.000)|	0.0050 (0.000)|	0.0000|	0.0000|	0.0000|
+|Coal *t*|	0.0061 (0.000)|	−0.0016 (0.045)|	0.0132 (0.000)|	0.0000|	0.0000|
+|Natural gas *t*|	−0.0009 (0.490)|	0.0003 (0.818)|	−0.0001 (0.441)	|0.0201 (0.000)	|0.0000|
+|Carbon *t*|	−0.0051 (0.001)|	−0.0019 (0.204)|	0.0005 (0.734)|	0.0055 (0.001)|	0.0238 (0.000)|
+We find statistical significance of the effect of Euro/USD on coal and carbon and the effect of natural gas on carbon.
+*p*-Values in parentheses.
 
 
 
-Impulse response Functions
 ========================================================
+<img src="Figure4.png"  />
+
+Impuse response functions to exchange rate shocks
+
+========================================================
+<img src="Figure5.png" height="700px" width="1355.9px"/>
+
+Impulse response to energy and carbon price shocks
 
 
 
-
+========================================================
+<img src="Figure6.png" height="700px" width="875px" />
 
 Forecast Error Variance Decomposition
-========================================================
-
-
 
 
 Conclusions
 ========================================================
+
+
+
+
+
+
