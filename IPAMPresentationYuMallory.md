@@ -11,6 +11,10 @@ IPAM UCLA, Commodity Markets and thier Financialization
 
 
 
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
 Background
 ========================================================
 From European Union Emissions Trading System (EU ETS) [factsheet](http://ec.europa.eu/clima/publications/docs/factsheet_ets_en.pdf)
@@ -37,9 +41,35 @@ Background
 - -> Carbon market and Carbon prices
 
 
+Objectives
+========================================================
+- Coal is "dirty" and denominated in USD
+- Natural gas is "clean" and denominated in Euro
+
+1. What effect does the **EURO/USD** exchange rate have on relative **energy prices**?
+2. What effect does the **EURO/USD** exchange rate have on **carbon credit prices**?
+
+***
+<figure>
+  <img src="Coal-Fired-Power-Plant_wikicommons.png" />
+  <figcaption>Coal fired power plant 
+  </figcaption>
+</figure>
+
+<figure>
+  <img src="Natural_Gas_Drilling_Haynesville_Shale_Louisiana_Jan_2013_wikicommons.png" />
+  <figcaption>Natual Gas Well (Wikimedia Commons) 
+  </figcaption>
+</figure>
+
+<img src="Natural_Gas_Drilling_Haynesville_Shale_Louisiana_Jan_2013_wikicommons.png" />
+.emphasized { font-size: 8pt}
+source: Wikimedia Commons
+
 Conceptual Framework
 ========================================================
 <img src="Figure1.png" height="418.848px" width="800px" />
+
 
 
 Conceptual Framework
@@ -110,9 +140,52 @@ Table 2: Johansen trace tests
 *a* is the rank of cointegration tested
 
 
+Emperical Strategy
+========================================================
+Cointegration among energy variables 
+- estimate first step  
+$e_t = P_t^{natural gas} - \beta_0 - \beta_1P_t^{coal}$
+
+- Then use these residuals as an explanitory variable in a SVAR
+
+Emperical Strategy
+========================================================
+$$B\Delta p_t = \Gamma_0 + \alpha e_t + \Gamma_1 \Delta p_{t-1} + \Gamma_2 \Delta p_{t-2} ... 
+ + \Gamma_J \Delta p_{t-J} + \epsilon_t$$
+ 
+ where
+ 
+ $$ \Delta p_t = \begin{bmatrix} \Delta Euro/USD \\  \Delta Euro/SFr  \\  \Delta Coal  \\  \Delta Natural Gas  \\  \Delta Carbon \end{bmatrix} $$ 
+ 
+ Emperical Strategy
+========================================================
+A reduced form verson of the SVAR is defined by 
+
+$$ \begin{align*}
+\Delta p_t = B^{-1}\Gamma_0 + B^{-1}\alpha e_t + B^{-1}\Gamma_1 \Delta p_{t-1} + B^{-1}\Gamma_2 \Delta p_{t-2} + ... \\
+ + B^{-1}\Gamma_J \Delta p_{t-J} + B^{-1}\epsilon_t
+  \end{align*}
+ $$
+
+Restricting parameters of the *B* matrix, allows the identification of the structural distubance term, $\epsilon_t$, from the reduced form disturbance term, $u_t = B^{-1}\epsilon_t$. 
+
+$$u_t = \begin{bmatrix} * & 0 & 0  & 0  & 0 \\
+                        * & * & 0  & 0  & 0 \\
+                        * & * & *  & 0  & 0 \\
+                        * & * & *  & *  & 0 \\
+                        * & * & *  & *  & *\end{bmatrix} \begin{bmatrix}  \epsilon_t^{Euro/USD} \\
+                                                                          \epsilon_t^{Euro/SFr} \\
+                                                                          \epsilon_t^{Coal} \\
+                                                                          \epsilon_t^{Natural Gas} \\
+                                                                          \epsilon_t^{Carbon} \\
+                        \end{bmatrix}$$
+
+
+
+
 
 ========================================================
-Table 3: Estimated effect of structural shock from the matrix *B*.
+Table 3: Estimated effect of structural shock from the matrix $B^{-1}$.
 
 |               |Disturbance    |    term             |             |       |       |
 |--------------:|---------------:|---------------:|----:|----:|----:|
@@ -147,7 +220,11 @@ Forecast Error Variance Decomposition
 
 Conclusions
 ========================================================
-
+- We used a SVAR to show a link between carbon pricing and exchange rates
+- A depreciated Euro caused lower carbon prices through energy substitution
+ + $\downarrow$ Euro $\Rightarrow$ coal is expensive $\Rightarrow$ substitute natural gas for coal
+ 
+ - Firms regulated under the EU ETS are exposed to exchange rate risk and large players might need to consider hedging this risk in currency markets. 
 
 
 
